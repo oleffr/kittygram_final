@@ -2,8 +2,8 @@
 version: '3'
 
 volumes:
-  pg_data_production:
-  static_volume:
+  pg_data:
+  static:
   media:
 
 # Всё отличие — заменяем build на image и указываем, какой образ использовать
@@ -12,24 +12,24 @@ services:
     image: postgres:13.10
     env_file: .env
     volumes:
-      - pg_data_production:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
   backend:
     image: oleffr/kittygram_backend
     env_file: .env
     volumes:
-      - static_volume:/backend_static
+      - static:/backend_static
       - media:/app/media/
   frontend:
     image: oleffr/kittygram_frontend  # Качаем с Docker Hub
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - static_volume:/frontend_static
+      - static:/frontend_static
   gateway:
     image: oleffr/kittygram_gateway  # Качаем с Docker Hub
     env_file: .env
     volumes:
-      - static_volume:/staticfiles/
+      - static:/staticfiles/
       - media:/app/media/
     ports:
       - 9000:80
