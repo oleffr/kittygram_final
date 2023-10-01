@@ -19,8 +19,8 @@
 ```
 mkdir kittygram
 ```
-- Скопируйте из папки проекта файлы docker-compose.production.yml и .env
-- 
+- Скопируйте из папки проекта файлы docker-compose.production.yml и .env в папку kittygram
+- С помощью git actions запустите процесс деплоя
 
 ## Отличие версий
 Это production-версия проекта kittygram (https://github.com/oleffr/infra_sprint1). В этой версии настроена автомазация при помощи docker и git actions
