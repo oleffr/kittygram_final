@@ -1,28 +1,48 @@
-#  Как работать с репозиторием финального задания
+# _Kittygram_
+## О проекте
+>Киттиграмм - это социальная сеть для выставления профилей котиков
 
-## Что нужно сделать
-
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
-
-## Как проверить работу с помощью автотестов
-
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
+## Запуск проекта
+- Склонируйте репозиторий проекта (https://github.com/oleffr/kittygram_final):
 ```
+ git clone git@github.com:oleffr/kittygram_final.git
+```
+- - Установите зависимости из файла requirements.txt:
+```
+ cd kittygram_final/backend
+ python3 -m venv venv
+ source venv/bin/activate
+ pip install -r requirements.txt
+```
+- Запустите сервер с помощью ssh -i путь_до_SSH_ключа/название_файла_с_SSH_ключом_без_расширения login@ip
+- Создайте на сервере папку kittygram:
+```
+mkdir kittygram
+```
+- Скопируйте из папки проекта файлы docker-compose.production.yml и .env
+- 
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+## Отличие версий
+Это production-версия проекта kittygram (https://github.com/oleffr/infra_sprint1). В этой версии настроена автомазация при помощи docker и git actions
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+## Использованные пакеты приложений
 
-## Чек-лист для проверки перед отправкой задания
+>Django                        3.2.3
+django-templated-mail         1.1.1
+djangorestframework           3.12.4
+djangorestframework-simplejwt 4.8.0
+pip                           22.0.2
+pluggy                        0.13.1
+py                            1.11.0
+PyJWT                         2.8.0
+pytest                        6.2.4
+pytest-django                 4.4.0
+pytest-pythonpath             0.7.3
+python-dotenv                 1.0.0
+requests                      2.31.0
+requests-oauthlib             1.3.1
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+## Об Авторе
+Автор: Ольга Ефремова (github.com/oleffr)
 
 ![example workflow](https://github.com/oleffr/kittygram_final/actions/workflows/main.yml/badge.svg)
