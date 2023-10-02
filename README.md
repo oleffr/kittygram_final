@@ -1,18 +1,11 @@
 # _Kittygram_
 ## О проекте
->Киттиграмм (https://github.com/oleffr/kittygram_final) - это социальная сеть для выставления профилей котиков
+>Киттиграмм - это социальная сеть для выставления профилей котиков (Ссылка на развернутый проект - https://kittygram-oleffr.hopto.org/)
 
 ## Запуск проекта
 - Склонируйте репозиторий проекта (https://github.com/oleffr/kittygram_final):
 ```
  git clone git@github.com:oleffr/kittygram_final.git
-```
-- - Установите зависимости из файла requirements.txt:
-```
- cd kittygram_final/backend
- python3 -m venv venv
- source venv/bin/activate
- pip install -r requirements.txt
 ```
 - Запустите Docker Compose
 ```
